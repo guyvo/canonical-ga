@@ -2092,6 +2092,11 @@
 		name = project.pbxproj;
 		path = /Users/guyvo/Documents/Repo/GATest.xcodeproj/project.pbxproj;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1356, 3081}}";
+			sepNavSelRange = "{9587, 0}";
+			sepNavVisRange = "{0, 1399}";
+		};
 	};
 	8E93D60813F71B200076BED2 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
