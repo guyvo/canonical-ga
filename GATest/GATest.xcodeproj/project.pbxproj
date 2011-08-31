@@ -11,6 +11,8 @@
 		8DD76F6A0486A84900D96B5E /* GATest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* GATest.1 */; };
 		8E39433D133BC15F00A890D7 /* random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E39433C133BC15F00A890D7 /* random.cpp */; };
 		8E4A0FF91331292000CCE37D /* ga_basics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A0FF81331292000CCE37D /* ga_basics.cpp */; };
+		8E69117E140C0FE00043AACC /* ga_gene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E69117D140C0FE00043AACC /* ga_gene.cpp */; };
+		8E691181140C102F0043AACC /* gene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E691180140C102F0043AACC /* gene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,10 @@
 		8E4A0FCA133123AA00CCE37D /* ga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ga.h; sourceTree = "<group>"; };
 		8E4A0FF81331292000CCE37D /* ga_basics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ga_basics.cpp; sourceTree = "<group>"; };
 		8E4A11721331561700CCE37D /* ga_basics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ga_basics.h; sourceTree = "<group>"; };
+		8E69117C140C0FE00043AACC /* ga_gene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ga_gene.h; sourceTree = "<group>"; };
+		8E69117D140C0FE00043AACC /* ga_gene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ga_gene.cpp; sourceTree = "<group>"; };
+		8E69117F140C102F0043AACC /* gene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gene.h; sourceTree = "<group>"; };
+		8E691180140C102F0043AACC /* gene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gene.cpp; sourceTree = "<group>"; };
 		C6859E8B029090EE04C91782 /* GATest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = GATest.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
+				8E691180140C102F0043AACC /* gene.cpp */,
 				8E4A0FF81331292000CCE37D /* ga_basics.cpp */,
+				8E69117D140C0FE00043AACC /* ga_gene.cpp */,
 				8E39433C133BC15F00A890D7 /* random.cpp */,
 			);
 			name = Source;
@@ -82,6 +90,8 @@
 			children = (
 				8E4A0FCA133123AA00CCE37D /* ga.h */,
 				8E4A11721331561700CCE37D /* ga_basics.h */,
+				8E69117C140C0FE00043AACC /* ga_gene.h */,
+				8E69117F140C102F0043AACC /* gene.h */,
 				8E39433B133BC15F00A890D7 /* random.h */,
 			);
 			name = includes;
@@ -148,6 +158,8 @@
 				8DD76F650486A84900D96B5E /* main.cpp in Sources */,
 				8E4A0FF91331292000CCE37D /* ga_basics.cpp in Sources */,
 				8E39433D133BC15F00A890D7 /* random.cpp in Sources */,
+				8E69117E140C0FE00043AACC /* ga_gene.cpp in Sources */,
+				8E691181140C102F0043AACC /* gene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
