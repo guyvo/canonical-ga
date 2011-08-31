@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "ga_basics.h"
+#include "gene.h"
 
 using namespace std;
 
@@ -16,10 +17,21 @@ int main (int argc, char * const argv[]) {
 	ofstream stats;
 	int runs=0;
 	double avg=0;
+	const bitset <GeneSize> b1 (string ("1111"));
+	const bitset <GeneSize> b2 (string ("0111"));
+	Gene g1(b1);
+	Gene g2(b2);
+	g1.SetBestGene();
+	g2.SetBestGene();
+	Gene * g3 = new Gene(b1);
+	delete g3;
 	
-	stats.open("/Users/guyvo/stats/population_1000.csv", ios::trunc);
+	if ( g1 > g2)
+		cout << "ok" << endl;
 	
-	iP.create(1000);
+	stats.open("population_100_1.csv", ios::trunc);
+	
+	iP.create(100);
 	iP.initialize(0.0000001);
 
 	cout << "Average strength : " << hex << iP.returnAverageStrength() << endl;
