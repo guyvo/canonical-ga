@@ -17,6 +17,9 @@ int main (int argc, char * const argv[]) {
 	ofstream stats;
 	int runs=0;
 	double avg=0;
+	
+	/*
+	 Testing gene class
 	const bitset <GeneSize> b1 (string ("1111"));
 	const bitset <GeneSize> b2 (string ("0111"));
 	Gene g1(b1);
@@ -28,10 +31,11 @@ int main (int argc, char * const argv[]) {
 	
 	if ( g1 > g2)
 		cout << "ok" << endl;
+	*/
 	
-	stats.open("population_100_1.csv", ios::trunc);
+	stats.open("population_10_2.csv", ios::trunc);
 	
-	iP.create(100);
+	iP.create(10);
 	iP.initialize(0.0000001);
 
 	cout << "Average strength : " << hex << iP.returnAverageStrength() << endl;

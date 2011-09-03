@@ -4,7 +4,11 @@
  *
  *  Created by Guy Van Overtveldt on 16/03/11.
  *  Copyright 2011 all rights reserved.
+ * 
  *
+ *  REV 1 : 
+ *  optimize the random for crossover
+ *  better mix the childs over the population
  */
 
 // C/C++ libs includes
@@ -137,6 +141,9 @@ bool ValueTarget::reached (Population * p , double weight){
 
 // *********************************************************
 // ValueFitness implements pure virtual Fitness
+//
+// BreedPopulation is the intermediate population
+// BreedPopulation can be not fully filled
 // *********************************************************
 
 void ValueFitness::run (Population  * p){
@@ -192,11 +199,10 @@ void SimpleBreed::crossover (Population &p, CROSSOVER c){
 	
 	// create the individuals as bitset to ease the crossover
 	bitset <GENE_SIZE> male,female,child1,child2;
-	
+
 	int size = iP->returnSize();
-	int index = size;
 	
-	while (index) {
+	for (int index = 0 ; index < size/2 ; index++){
 		
 		// take only the copies not the empty slots at random
 		while ( (male = iP->returnBreedPopulation()[rand()%size]) == DEAD );
@@ -209,37 +215,48 @@ void SimpleBreed::crossover (Population &p, CROSSOVER c){
 		// continue with crossover
 		if (c == SINGLE_POINT){
 			
-			// calculate point random
+			// calculate point random for child 1
 			int point = rand() % GENE_SIZE;
 			
 			// crossover bits
 			for (int LSB = 0 ; LSB < point; LSB++) {
 				child1.set(LSB, female.test(LSB));
+			}
+
+			// calculate point random for child 2
+			point = rand() % GENE_SIZE;
+
+			// crossover bits
+			for (int LSB = 0 ; LSB < point; LSB++) {
 				child2.set(LSB, male.test(LSB));
 			}
-			
-			// assign the bitsets
-			iP->returnThePopulation()[index--] = child1.to_ulong();
-			iP->returnThePopulation()[index--] = child2.to_ulong();
 		}
 		else if( c == TWO_POINT ) {
 			
-			// calculate two points random with p2 > p1
+			// calculate two points random with p2 > p1 for child 1
 			int point2 = rand() % GENE_SIZE;
 			int point1 = rand() % (point2+1);
 		
 			// crossover bits
 			for (int LSB = point1 ; LSB < point2; LSB++) {
 				child1.set(LSB, female.test(LSB));
+			}
+
+			// calculate two points random with p2 > p1 for child 2
+			point2 = rand() % GENE_SIZE;
+			point1 = rand() % (point2+1);
+			
+			// crossover bits
+			for (int LSB = point1 ; LSB < point2; LSB++) {
 				child2.set(LSB, male.test(LSB));
 			}
-			
-			// assign
-			iP->returnThePopulation()[index--] = child1.to_ulong();
-			iP->returnThePopulation()[index--] = child2.to_ulong();
-			
-		}			
-	}
+		}
+		
+		// child1 from half to size - child2 from 0 to half
+		iP->returnThePopulation()[size-index-1] = child1.to_ulong();
+		iP->returnThePopulation()[index] = child2.to_ulong();
+
+	} 
 	
 	// clear out the intermediate for the next run
 	iP->ClearIntermediatePopulation();
