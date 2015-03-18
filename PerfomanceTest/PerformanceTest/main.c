@@ -4,6 +4,7 @@
 //
 //  Created by Guy Van Overtveldt on 13/08/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  From 2015 exported into GitHub
 //
 
 
